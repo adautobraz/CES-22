@@ -41,6 +41,17 @@ public class CalculatorEngine {
 	}
 	
 	CalculatorEngine() {clear();}
+	
+	public static void main (String arg[]){
+		CalculatorEngine c = new CalculatorEngine();
+		c.digit(1);
+		c.digit(3);
+		c.add();
+		c.digit(1);
+		c.digit(1);
+		c.compute();
+		System.out.println(c.display());
+	}
 }
 	
 
