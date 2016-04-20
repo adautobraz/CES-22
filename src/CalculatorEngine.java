@@ -22,8 +22,13 @@ public class CalculatorEngine {
 			value = keep - value;
 		else if(toDo == '*')
 			value = keep * value;
-		else if (toDo == '/')
-			value = keep / value;
+		else if (toDo == '/'){
+			try {
+				value = keep / value;
+				}catch( Exception e){
+					System.out.println("Não é possiível dividir por 0");
+				}
+		}
 		keep = 0;
 	}
 	
