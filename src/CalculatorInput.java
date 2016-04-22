@@ -26,6 +26,7 @@ public class CalculatorInput {
 				else if (c == 'c' || c == 'C') engine.clear();
 			}
 		}
+		
 	}
 	
 	public static void main(String arg[]) throws Exception {
