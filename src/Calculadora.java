@@ -13,18 +13,21 @@ public class Calculadora extends JFrame implements ActionListener {
 	 */
 	private static final long serialVersionUID = 1L;
 	JTextField visor;
-	JButton btSoma, btDiv, btSub, btMult, bt0, bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9, btClear;
-	CalculatorEngine c;
+	JButton btSoma, btDiv, btSub, btIgual, btMult, bt0, bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9, btClear;
+	CalculatorEngine engine;
 	
 	
 	public Calculadora(){
 		
-		setSize(193,230);
+		
+		engine = new CalculatorEngine();
+		setSize(193,260);
 		setTitle("Calculadora");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		//Instanciamento dos componentes
 		visor = new JTextField(15);
+		btIgual = new JButton("=");
 		btSoma = new JButton("+");
 		btDiv = new JButton("/");
 		btMult = new JButton("*");
@@ -59,6 +62,7 @@ public class Calculadora extends JFrame implements ActionListener {
 		getContentPane().add(btDiv);
 		getContentPane().add(btMult);
 		getContentPane().add(btSub);
+		getContentPane().add(btIgual);
 		getContentPane().add(btClear);
 		
 		//Adicionar ações a componentes
@@ -67,6 +71,7 @@ public class Calculadora extends JFrame implements ActionListener {
 		btDiv.addActionListener(this);
 		btMult.addActionListener(this);
 		btClear.addActionListener(this);
+		btIgual.addActionListener(this);
 		bt0.addActionListener(this);
 		bt1.addActionListener(this);
 		bt2.addActionListener(this);
@@ -91,9 +96,66 @@ public class Calculadora extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		
 		if(e.getSource() == btSoma){
-			
+			engine.add();
 		}
-		
+		if(e.getSource() == btIgual){
+			engine.compute();
+			visor.setText(String.valueOf(engine.display()));
+		}	
+		if(e.getSource() == btClear){
+			engine.clear();
+			visor.setText(String.valueOf(engine.display()));
+		}	
+		if(e.getSource() == btSub){
+			engine.subtract();
+		}
+		if(e.getSource() == btDiv){
+			engine.divide();
+		}
+		if(e.getSource() == btMult){
+			engine.multiply();
+		}
+		if(e.getSource() == bt0){
+			engine.digit(0);
+			visor.setText(String.valueOf(engine.display()));
+		}
+		if(e.getSource() == bt1){
+			engine.digit(1);
+			visor.setText(String.valueOf(engine.display()));
+		}
+		if(e.getSource() == bt2){
+			engine.digit(2);
+			visor.setText(String.valueOf(engine.display()));
+		}
+		if(e.getSource() == bt3){
+			engine.digit(3);
+			visor.setText(String.valueOf(engine.display()));
+		}
+		if(e.getSource() == bt4){
+			engine.digit(4);
+			visor.setText(String.valueOf(engine.display()));
+		}
+		if(e.getSource() == bt5){
+			engine.digit(5);
+			visor.setText(String.valueOf(engine.display()));
+		}
+		if(e.getSource() == bt6){
+			engine.digit(6);
+			visor.setText(String.valueOf(engine.display()));
+		}
+		if(e.getSource() == bt7){
+			engine.digit(7);
+			visor.setText(String.valueOf(engine.display()));
+		}
+		if(e.getSource() == bt8){
+			engine.digit(8);
+			visor.setText(String.valueOf(engine.display()));
+		}
+		if(e.getSource() == bt9){
+			engine.digit(9);	
+			visor.setText(String.valueOf(engine.display()));
+		}
+	
 	}
 	
 	
